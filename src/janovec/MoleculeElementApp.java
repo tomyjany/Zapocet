@@ -51,11 +51,20 @@ public class MoleculeElementApp {
                 f.delete();
             }
         }
-        try(BufferedWriter bw = new BufferedWriter(new BufferedOutputStream())){
+         try(DataOutputStream dos = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(f)))){
+            dos.write(molecules.size());
+             for (MoleculeSame molecule : molecules) {
+                 dos.write(molecule.getName());
+                 dos.writeInt(molecule.getNOfAtoms());
+                 dos.writeDouble(molecule.getWeight());
+                 
+             }
+                 
+             }
             
-        }
-        
-    }   catch (IOException ex) {
-            System.out.println("Nepodarilo se zapsat do souboru");
+            
+            
+        }catch(IOException e){
+             System.out.println("Soubor se nepodarilo zapsat");
         }
 }

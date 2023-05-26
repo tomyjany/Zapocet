@@ -28,6 +28,10 @@ public class MoleculeSame implements Weightable{
     public String getName(){
         return ele.getName()+Integer.toString(this.nOfElements);
     }
+    public int getNOfAtoms(){
+        return nOfElements;
+    }
+    
     
     
 }
